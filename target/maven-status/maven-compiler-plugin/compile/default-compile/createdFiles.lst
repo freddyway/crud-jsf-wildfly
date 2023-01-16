@@ -1,0 +1,6 @@
+org\example\entities\Producto.class
+org\example\repository\CrudRepository.class
+org\example\services\ProductoServiceImpl.class
+org\example\services\ProductoService.class
+org\example\repository\ProductoRepositoryImpl.class
+org\example\controllers\ProductoController.class

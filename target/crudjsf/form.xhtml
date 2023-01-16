@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <meta charset="utf-8"/>
+    <title>Formulario Producto</title>
+</h:head>
+<h:body>
+    <!--Esto solo para h:link -->
+    <f:metadata>
+        <f:viewParam name="id" value="#{productoController.id}"/>
+    </f:metadata>
+    <h:messages style="color:red" />
+    <h:panelGrid border="1">
+        <f:facet name="header">
+            <h:outputText value="#{producto.id>0?'Editar':'Crear'} Producto"/>
+        </f:facet>
+        <h:link outcome="index" value="Volver"/>
+        <h:form>
+            <h:panelGrid columns="2" border="1">
+                <h:outputLabel value="Nombre" for="nombre"/>
+                <h:inputText value="#{producto.nombre}" id="nombre" label="nombre" required="true"/>
+                <h:outputLabel value="Precio" for="precio"/>
+                <h:inputText value="#{producto.precio}" id="precio" label="precio" required="true"/>
+                <h:outputLabel value="SKU" for="sku"/>
+                <h:inputText value="#{producto.sku}" id="sku" label="sku" required="true"/>
+                <h:outputLabel value="FECHA" for="fechaRegistro"/>
+                <h:inputText value="#{producto.fechaRegistro}" id="fechaRegistro" label="fechaRegistro" convertMessage="Indique la fecha yyyy-MM-dd" required="true">
+                    <f:convertDateTime type="localDate" pattern="yyyy-MM-dd"/>
+                    <f:passThroughAttribute name="placeholder" value="yyyy-MM-dd"/>
+                    <f:passThroughAttribute name="type" value="date"/>
+                </h:inputText>
+
+                <h:commandButton value="#{producto.id>0?'Editar':'Crear'}" action="#{productoController.guardar}"/>
+                <h:inputHidden value="#{producto.id}"/>
+<!--                <h:inputHidden value="#{producto.fechaRegistro}"/>-->
+            </h:panelGrid>
+        </h:form>
+    </h:panelGrid>
+</h:body>
+</html>
