@@ -16,8 +16,21 @@ public class Producto {
     private Integer precio;
     private String sku;
 
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
+
     @Column(name = "fecha_registro")
     private LocalDate fechaRegistro;
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
     public Producto() {
     }
 
@@ -64,6 +77,7 @@ public class Producto {
     public void setFechaRegistro(LocalDate fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
+
 
 //    @PrePersist
 //    public void prePersist(){

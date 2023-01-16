@@ -22,10 +22,20 @@
             <h:panelGrid columns="2" border="1">
                 <h:outputLabel value="Nombre" for="nombre"/>
                 <h:inputText value="#{producto.nombre}" id="nombre" label="nombre" required="true"/>
+
                 <h:outputLabel value="Precio" for="precio"/>
                 <h:inputText value="#{producto.precio}" id="precio" label="precio" required="true"/>
+
                 <h:outputLabel value="SKU" for="sku"/>
                 <h:inputText value="#{producto.sku}" id="sku" label="sku" required="true"/>
+
+                <h:outputLabel value="Categoria" for="categoria"/>
+                <h:selectOneMenu value="#{producto.categoria}" id="categoria">
+                     <f:selectItem itemLabel="-- Seleccione Categoria" itemValue="#{null}"/>
+                     <f:selectItems itemLabel="#{cat.nombre}" value="#{categorias}" var="cat"/>
+                     <f:converter binding="#{categoriaConverter}"/>
+                </h:selectOneMenu>
+
                 <h:outputLabel value="FECHA" for="fechaRegistro"/>
                 <h:inputText value="#{producto.fechaRegistro}" id="fechaRegistro" label="fechaRegistro" convertMessage="Indique la fecha yyyy-MM-dd" required="true">
                     <f:convertDateTime type="localDate" pattern="yyyy-MM-dd"/>

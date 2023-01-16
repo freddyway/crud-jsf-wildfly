@@ -5,6 +5,7 @@ import jakarta.enterprise.inject.Model;
 import jakarta.enterprise.inject.Produces;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import org.example.entities.Categoria;
 import org.example.entities.Producto;
 import org.example.services.ProductoService;
 
@@ -58,6 +59,11 @@ public class ProductoController {
         return producto;
     }
 
+    @Produces
+    @Model
+    public List<Categoria> categorias(){
+        return service.listarCategorias();
+    }
     public String guardar(){
         service.guardar(producto);
         return "index.xhtml?faces-redirect=true";
