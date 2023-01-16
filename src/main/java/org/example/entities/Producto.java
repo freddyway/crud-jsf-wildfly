@@ -1,6 +1,7 @@
 package org.example.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
 
@@ -11,15 +12,24 @@ public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotEmpty
     private String nombre;
 
+    @NotNull
+    @Min(5)
+    @Max(1000)
     private Integer precio;
+    @NotEmpty
+    @Size(min = 5,max = 10)
     private String sku;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
+    @NotNull
     @Column(name = "fecha_registro")
     private LocalDate fechaRegistro;
 

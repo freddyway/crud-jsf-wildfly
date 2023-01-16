@@ -12,36 +12,41 @@
     <f:metadata>
         <f:viewParam name="id" value="#{productoController.id}"/>
     </f:metadata>
-    <h:messages style="color:red" />
+<!--    <h:messages style="color:red" />-->
     <h:panelGrid border="1">
         <f:facet name="header">
             <h:outputText value="#{producto.id>0?'Editar':'Crear'} Producto"/>
         </f:facet>
         <h:link outcome="index" value="Volver"/>
         <h:form>
-            <h:panelGrid columns="2" border="1">
+            <h:panelGrid columns="3" border="1">
                 <h:outputLabel value="Nombre" for="nombre"/>
-                <h:inputText value="#{producto.nombre}" id="nombre" label="nombre" required="true"/>
+                <h:inputText value="#{producto.nombre}" id="nombre" label="nombre" />
+                <h:message for="nombre" style="color:red" />
 
                 <h:outputLabel value="Precio" for="precio"/>
-                <h:inputText value="#{producto.precio}" id="precio" label="precio" required="true"/>
+                <h:inputText value="#{producto.precio}" id="precio" label="precio" />
+                <h:message for="precio" style="color:red" />
 
                 <h:outputLabel value="SKU" for="sku"/>
-                <h:inputText value="#{producto.sku}" id="sku" label="sku" required="true"/>
+                <h:inputText value="#{producto.sku}" id="sku" label="sku" />
+                <h:message for="sku" style="color:red" />
 
-                <h:outputLabel value="Categoria" for="categoria"/>
-                <h:selectOneMenu value="#{producto.categoria}" id="categoria">
-                     <f:selectItem itemLabel="-- Seleccione Categoria" itemValue="#{null}"/>
-                     <f:selectItems itemLabel="#{cat.nombre}" value="#{categorias}" var="cat"/>
-                     <f:converter binding="#{categoriaConverter}"/>
-                </h:selectOneMenu>
-
-                <h:outputLabel value="FECHA" for="fechaRegistro"/>
-                <h:inputText value="#{producto.fechaRegistro}" id="fechaRegistro" label="fechaRegistro" convertMessage="Indique la fecha yyyy-MM-dd" required="true">
+                <h:outputLabel value="Fecha" for="fechaRegistro"/>
+                <h:inputText value="#{producto.fechaRegistro}" id="fechaRegistro" label="fechaRegistro" convertMessage="Indique la fecha yyyy-MM-dd" >
                     <f:convertDateTime type="localDate" pattern="yyyy-MM-dd"/>
                     <f:passThroughAttribute name="placeholder" value="yyyy-MM-dd"/>
                     <f:passThroughAttribute name="type" value="date"/>
                 </h:inputText>
+                <h:message for="fechaRegistro" style="color:red" />
+
+                <h:outputLabel value="Categoria" for="categoria"/>
+                <h:selectOneMenu value="#{producto.categoria}" id="categoria">
+                    <f:selectItem itemLabel="-- Seleccione Categoria" itemValue="#{null}"/>
+                    <f:selectItems itemLabel="#{cat.nombre}" value="#{categorias}" var="cat"/>
+                    <f:converter binding="#{categoriaConverter}"/>
+                </h:selectOneMenu>
+                <h:message for="categoria" style="color:red" />
 
                 <h:commandButton value="#{producto.id>0?'Editar':'Crear'}" action="#{productoController.guardar}"/>
                 <h:inputHidden value="#{producto.id}"/>

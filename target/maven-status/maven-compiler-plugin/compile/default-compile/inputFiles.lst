@@ -1,6 +1,9 @@
 C:\Users\S3316AM\IdeaProjects\crud-jsf-wildfly\src\main\java\org\example\services\ProductoServiceImpl.java
+C:\Users\S3316AM\IdeaProjects\crud-jsf-wildfly\src\main\java\org\example\repository\CategoriaRepositoryImpl.java
 C:\Users\S3316AM\IdeaProjects\crud-jsf-wildfly\src\main\java\org\example\controllers\ProductoController.java
 C:\Users\S3316AM\IdeaProjects\crud-jsf-wildfly\src\main\java\org\example\entities\Producto.java
 C:\Users\S3316AM\IdeaProjects\crud-jsf-wildfly\src\main\java\org\example\services\ProductoService.java
+C:\Users\S3316AM\IdeaProjects\crud-jsf-wildfly\src\main\java\org\example\entities\Categoria.java
 C:\Users\S3316AM\IdeaProjects\crud-jsf-wildfly\src\main\java\org\example\repository\CrudRepository.java
+C:\Users\S3316AM\IdeaProjects\crud-jsf-wildfly\src\main\java\org\example\converters\CategoriaConverter.java
 C:\Users\S3316AM\IdeaProjects\crud-jsf-wildfly\src\main\java\org\example\repository\ProductoRepositoryImpl.java
